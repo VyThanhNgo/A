@@ -1,0 +1,1030 @@
+
+:root {
+  --primary-color: #FF4E42;
+  --secondary-color: #333;
+  --background-color: #f9f9f9;
+  --text-color: #767e89;
+  --font-family: Times, "Times New Roman", serif;
+}
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header .logo {
+  flex-shrink: 0;
+}
+
+.header .logo img {
+  max-width: 100%;
+  height: auto;
+  width: 220px;
+  max-width: 220px;
+  margin-left: -7%;
+
+}
+
+.nav-left {
+  display: flex; /* Sắp xếp ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 20px; /* Khoảng cách giữa các liên kết */
+}
+
+.nav-left a {
+  color: var(--secondary-color); /* Màu chữ mặc định */
+  text-decoration: none; /* Loại bỏ gạch dưới */
+  font-size: 16px; /* Kích thước chữ */
+  font-weight: 600; /* Đậm hơn một chút */
+  transition: color 0.3s ease; /* Hiệu ứng mượt khi thay đổi màu */
+}
+
+.nav-left a:hover {
+  color: var(--primary-color); /* Màu chữ khi hover */
+}
+
+/* Right Side Navigation */
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Right Side Navigation */
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-right a {
+  position: relative;
+  color: var(--secondary-color);
+  text-decoration: none; /* Không gạch chân mặc định */
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  opacity: 0.95;
+}
+
+/* Underline effect on hover */
+.nav-right a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ff4e42;
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+/* Khi hover tab, gạch chân xuất hiện */
+.nav-right a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Giữ dấu gạch chân khi tab có lớp 'active' */
+.nav-right a.active::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Cập nhật màu và kiểu khi tab đang được chọn */
+.nav-right a.active {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+/* Hover color for .log-in link */
+.nav-right .log-in:hover {
+  color: #cc3e36;
+}
+
+/* Dropdown styling */
+.nav-right .dropdown {
+  position: relative;
+}
+
+.nav-right .dropbtn {
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.nav-right .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-right .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Bỏ gạch chân cho các liên kết trong dropdown */
+.nav-right .dropdown-content a {
+  text-decoration: none; /* Không có gạch chân */
+  color: var(--secondary-color); /* Màu chữ */
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Hover màu sắc cho các liên kết trong dropdown */
+.nav-right .dropdown-content a:hover {
+  color: #cc3e36; /* Màu khi hover */
+}
+
+/* Không có gạch chân khi hover ở các mục dropdown */
+.nav-right .dropdown-content a::before {
+  content: none; /* Không có gạch chân */
+}
+
+
+/* Dropdown Menu Style */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  color: var(--secondary-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center; /* Căn giữa chữ và mũi tên theo chiều dọc */
+}
+
+.arrow-down {
+  font-size: 12px; /* Kích thước nhỏ cho mũi tên */
+  margin-left: 8px; /* Khoảng cách giữa chữ và mũi tên */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--background-color); /* Điều chỉnh theo chủ đề */
+  min-width: 200px; /* Chỉnh độ rộng khung dropdown */
+  z-index: 1;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color:var(--secondary-color);
+}
+
+.dropdown.active .dropdown-content {
+  display: block; /* Hiển thị menu dropdown khi click */
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none; /* Hide menu by default */
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-right.active {
+    display: flex; /* Show menu when active */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger button */
+  }
+}
+
+/* Responsive cho các màn hình nhỏ */
+@media (max-width: 576px) {
+  .header {
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    max-width: 90%;
+    transform: translateY(0);
+    text-align: center;
+  }
+
+  .hero-images {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .hero-images img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsive cho màn hình trung bình */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero-content {
+    max-width: 80%;
+    margin: 0;
+    text-align: center;
+    transform: translateY(0);
+  }
+
+  .hero-images img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .btn-start-now {
+    padding: 10px 40px;
+    font-size: 14px;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  position: fixed; /* Cố định vị trí của hero-section */
+  top: 0; /* Đặt hero-section ở phía trên cùng của cửa sổ trình duyệt */
+  left: 0; /* Đặt hero-section ở phía bên trái */
+  width: 100%; /* Chiều rộng 100% của cửa sổ trình duyệt */
+  padding: 20px 80px;
+  background-color: #fff;
+  z-index: 1000; /* Đảm bảo hero-section sẽ ở trên các phần tử khác */
+}
+
+
+.hero-content {
+  max-width: 40%;
+  transform: translateY(180px);
+  margin-left: 115px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn-start-now {
+  margin: 20px 0;
+  padding: 10px 60px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color:var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-start-now:hover {
+  background-color:#f52222 ;
+}
+
+/* Hero Images */
+.hero-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.hero-images img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.hero-content ul {
+  margin-top: 40px;
+}
+
+.hero-content ul li {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #313140;
+  margin-bottom: 10px;
+}
+
+.hero-content ul li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+/* Carousel */
+.carousel-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+.indicator.active {
+  background-color: #FF4E42;
+}
+
+.hero-images {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-wrapper img {
+  width: 33%;
+  height: 40%;
+  object-fit: cover;
+  margin-left: 780px;
+  transform: translateY(-50%);
+}
+
+
+.offer-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f7f7f7;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transform: translateY(-100px); /* Dịch chuyển lên trên 50px */
+  margin-bottom: 20px; /* Tránh chồng chéo */
+}
+
+.offer-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #313140;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.offer-item {
+  max-width: 300px;
+  text-align: center;
+}
+
+.offer-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px auto;
+  object-fit: contain;
+}
+
+.offer-item h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #515164;
+}
+
+.offer-item p {
+  font-size: 14px;
+  color: #9c9cac;
+  margin-bottom: 20px;
+}
+
+.offer-link {
+  font-size: 14px;
+  color: #00b3bd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.offer-link:hover {
+  text-decoration: underline;
+}
+
+/* Reset margin và padding cho toàn bộ trang */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Đảm bảo phần nội dung chính không bị footer che mất */
+.content {
+  padding-bottom: 120px; /* Dành không gian cho footer */
+  min-height: 100%; /* Đảm bảo nội dung chính sẽ chiếm toàn bộ không gian còn lại */
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center; /* Căn giữa footer */
+  align-items: center;
+  padding: 40px 20px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  position: relative;
+  width: 100%;
+  margin-top: auto; /* Đảm bảo footer luôn nằm dưới cùng */
+  flex-direction: column; /* Điều chỉnh các phần tử nằm theo cột */
+}
+
+/* Content in the footer */
+.footer-content {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between; /* Căn giữa và phân bố đều các phần tử */
+  align-items: flex-start; /* Căn chỉnh các phần tử theo chiều dọc ở trên cùng */
+  margin: 0 auto;
+  width: 100%;
+  margin-left: 10%;
+  flex-wrap: wrap; /* Cho phép phần tử xếp chồng lên nếu không đủ không gian */
+}
+
+/* Các phần tử bên trong footer-content */
+.footer-left,
+.footer-links,
+.footer-contact {
+  flex: 1; /* Các phần tử chiếm không gian đều nhau */
+  margin-right: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.footer-left {
+  flex: 2; /* Cho phần logo chiếm không gian rộng hơn */
+}
+
+.footer-logo {
+  max-width: 40%;
+  margin-bottom: 10px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-contact ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links ul li,
+.footer-contact ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  color: #fff;
+}
+
+.footer-contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact ul li i {
+  margin-right: 10px;
+  color: #FF4E42;
+}
+
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  margin-top: 20px;
+  width: 100%; /* Đảm bảo nó không bị co lại */
+  flex-wrap: wrap;
+  margin-top: 30px; /* Đảm bảo footer-bottom có khoảng cách từ phần trên */
+}
+
+.footer-bottom p {
+  margin: 0;
+  margin-left: 10%;
+}
+
+.social-media {
+  display: flex; /* Sử dụng flexbox để căn chỉnh các icon */
+  justify-content: flex-start; /* Căn chỉnh các icon về bên trái */
+  padding-left: 0; /* Đảm bảo không có khoảng cách trái không mong muốn */
+  margin-right: 8.3%;
+}
+
+.social-media a {
+  color: #aaa; /* Màu mặc định của icon */
+  font-size: 20px; /* Kích thước icon */
+  margin-right: 25px; /* Khoảng cách giữa các icon (thay đổi giá trị này để tăng/gảm khoảng cách) */
+}
+/* Thay đổi màu sắc của các biểu tượng khi hover */
+.social-media a:hover {
+  color: #FF4E42; /* Màu vàng khi hover */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+}
+
+  /* Đảm bảo các modal ẩn mặc định */
+  #login-overlay,
+  #signup-overlay {
+    display: none; /* Mặc định là ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+      .overlay.active {
+        display: flex; /* Use flexbox to center the modals */
+        justify-content: center;
+        align-items: center;
+      }
+
+      .login-modal {
+        background-color: #fff;
+        width: 400px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      input[type="email"]:focus, input[type="password"]:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      .remember {
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center; /* Căn giữa văn bản bên trong */
+
+      }
+
+      .remember a {
+        font-size: 12px;
+        text-align: center; /* Căn giữa văn bản bên trong */
+      }
+
+      .login-btn, .signup-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: var(--secondary-color); /* Màu chữ mặc định */
+        border: none;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .login-btn:hover, .signup-btn:hover {
+        background-color: var(--primary-color);
+      }
+
+      .signup p {
+        font-size: 14px;
+        margin-top: 15px;
+        margin-top: 15px;
+      }
+
+      .signup a {
+        font-size: 14px;
+        color: #007bff;
+      }
+
+      .hidden {
+        display: none;
+      }
+    /* Đảm bảo các modal ẩn mặc định */
+  #login-overlay,
+  #signup-overlay 
+  #forgot-password-overlay{
+    display: none; /* Mặc định là ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+
+    .overlay.active {
+      display: flex; /* Use flexbox to center the modals */
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Modal content styles */
+    .login-modal {
+      background-color: white;
+      width: 32%;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 10% auto;
+        margin-bottom: 8%;
+
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .remember {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center; /* Căn giữa văn bản bên trong */
+
+    }
+
+    .remember a {
+      font-size: 12px;
+    }
+
+    .login-btn, .signup-btn, .forgot-password-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+
+    .login-btn:hover, .signup-btn:hover {
+      background-color: #f52222;
+    }
+
+    .signup p {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .signup a {
+      font-size: 14px;
+      color: #007bff;
+    }
+
+    .hidden {
+      display: none;
+    }
+    /* Đảm bảo phần Overlay và Modal Sign Up được ẩn */
+    .signup-modal {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Đảm bảo phần Overlay và Modal Sign Up được ẩn */
+    .signup-modal {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    .signup-overlay {
+      display: none; /* Ẩn mặc định */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .signup-overlay {
+      display: none; /* Ẩn mặc định */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+/* Đảm bảo phần Overlay và Modal Forgot Password được ẩn */
+#forgot-password-overlay {
+  display: none; /* Mặc định là ẩn */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.forgot-password-overlay.active {
+  display: flex; /* Sử dụng flexbox để căn giữa modal */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tiêu đề của Modal */
+.forgot-password-modal h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Mô tả của Modal */
+.forgot-password-modal .login p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+
+
+
+/* Link màu xanh */
+.forgot-password-modal a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Input fields cho email */
+.forgot-password-modal input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Tạo hiệu ứng focus cho input */
+.forgot-password-modal input[type="email"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button để gửi yêu cầu quên mật khẩu */
+.forgot-password-modal .reset-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF6B6B;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Hiệu ứng hover cho nút reset */
+.forgot-password-modal .reset-btn:hover {
+  background-color: #FF4F4F;
+}
+
+
+/* Ẩn đi các phần không sử dụng */
+.hidden {
+  display: none;
+}
+.forgot-password-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.forgot-password-btn:hover {
+  background-color: #f52222;
+  ;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; /* Đảm bảo nút đóng cách cạnh trên khoảng 10px */
+  right: 10px; /* Đảm bảo nút đóng cách cạnh phải khoảng 10px */
+  font-size: 24px; /* Kích thước chữ lớn để dễ nhận diện */
+  color: #333; /* Màu sắc của nút đóng */
+  background: none; /* Không có nền */
+  border: none; /* Không có đường viền */
+  cursor: pointer; /* Hiển thị con trỏ kiểu bàn tay khi di chuột vào */
+  z-index: 1001; /* Đảm bảo nút "X" hiển thị trên modal */
+  transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.close-btn:hover {
+  color: #f44336; /* Đổi màu khi hover */
+}
+
+/* Hiển thị modal */
+.overlay {
+  display: none; /* Mặc định ẩn modal */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Nền tối mờ */
+  z-index: 1000; /* Modal sẽ nằm trên các phần tử khác */
+}
+
+.overlay.active {
+  display: block; /* Khi lớp active được thêm vào, modal sẽ hiển thị */
+}
+
+/* Phần modal (quên mật khẩu) */
+.forgot-password-modal {
+  position: absolute;
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translate(-50%, -50%); /* Điều chỉnh vị trí để căn giữa chính xác */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; /* Đặt chiều rộng tối đa của modal */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ cho modal */
+  text-align: center;
+}
